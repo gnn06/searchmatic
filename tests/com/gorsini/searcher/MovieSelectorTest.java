@@ -34,5 +34,16 @@ public class MovieSelectorTest {
         Movie result = selector.selectMovie(element, movie);
         assertNull(result);
     }
+    
+    @Test
+    public void testSelectMovieGratuit() {
+        MovieSelector selector = new MovieSelector();
+        Document doc2 = Jsoup.parseBodyFragment("<div class=\"list_movie\" xmlns:date=\"urn:cplay:date\" xmlns:format=\"urn:cplay:format\"><div class=\"col1\"><a href=\"/cinema/imitation-game-minutes-gratuites,297,306,45623.aspx\"><img width=\"70\" height=\"96\" src=\"http://canalplay-publishing.canal-plus.com/Movies/45623/Pictures/"+
+						"fnac_1.gif\" alt=\"Imitation Game, minutes gratuites\" title=\"Imitation Game, minutes gratuites\"></a></div><div class=\"col2\"><ul><li class=\"price\"><strong style=\"color:black\"><span style=\"color:#000\">Gratuit</span></strong></li><li class=\"displayHD\"><a href=\"/films/haute-definition.aspx?opf=-1\"><img src=\"/images/Pictos/hd.gif\" alt=\"Haute définition\" title=\"Haute définition\" border=\"0\"></a></li><li><strong><a href=\"/cinema/imitation-game-minutes-gratuites,297,306,45623.aspx\">Imitation Game, minutes gratuites</a></strong></li><li><strong>Passion</strong></li><li>VF&nbsp;-&nbsp;5 min&nbsp;-&nbsp;2014</li><li><strong>De : </strong>Mortem Tyldum<br></li><li><span><strong>Avec : </strong></span>Benedict Cumberbatch,&nbsp;Keira Knightley</li><li>Découvrez le secret derrière les minutes gratuites d'Imitation Game.</li></ul></div><div class=\"blank\"></div></div>");
+        Element element = doc2.body();
+        Movie movie = new Movie("imitation", null, 0, null);
+        Movie result = selector.selectMovie(element, movie);
+        assertNull(result);
+    }
 }
 

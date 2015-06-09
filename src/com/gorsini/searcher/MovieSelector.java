@@ -28,7 +28,8 @@ public class MovieSelector {
         // prix égale 'à partir du ', '2,99 €', 'gratuit'
         Elements priceElem = movieElem.select("li.price");
         String price = priceElem.get(0).text();
-        boolean disponible = !price.equals("Indisponible actuellement");
+        boolean disponible = !price.equals("Indisponible actuellement") &&
+        		             !price.equals("Gratuit");
         boolean HD = !movieElem.select("li.displayHD").isEmpty();
         if (!disponible) {
             return null;
